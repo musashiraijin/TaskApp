@@ -41,6 +41,8 @@ class InputViewController: UIViewController {
             self.realm.add(self.task, update: true)
         }
         
+        setNotification(task)
+        
         super.viewWillDisappear(animated)
     }
     
@@ -52,6 +54,28 @@ class InputViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func setNotification(task: Task) {
+        
+        // すでに同じタスクが登録されていたらキャンセルする
+        for notification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+            if notification.userInfo!["id"] as! Int == task.id {
+                UIApplication.sharedApplication().cancelLocalNotification(notification)
+                break   // breakに来るとforループから抜け出せる
+            }
+        }
+        
+        let notification = UILocalNotification()
+        
+        notification.fireDate = task.date
+        notification.timeZone = NSTimeZone.defaultTimeZone()
+        notification.alertBody = "\(task.title)"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.userInfo = ["id":task.id]
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
     }
     
 
