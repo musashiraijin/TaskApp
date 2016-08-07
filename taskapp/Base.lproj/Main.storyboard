@@ -33,14 +33,14 @@
                                                     <rect key="frame" x="15" y="5" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wVh-l2-9l7">
                                                     <rect key="frame" x="15" y="25" width="41" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -89,10 +89,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYs-vP-Ggl">
-                                <rect key="frame" x="20" y="74" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYs-vP-Ggl">
+                                <rect key="frame" x="20" y="74" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGx-J7-0H8">
@@ -100,12 +100,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vun-Zj-Iw7">
-                                <rect key="frame" x="20" y="145" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZLd-oP-GYt">
                                 <rect key="frame" x="20" y="176" width="560" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,6 +119,12 @@
                                     <!--2016-08-06 06:27:38 +0000-->
                                 </date>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vun-Zj-Iw7">
+                                <rect key="frame" x="20" y="145" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -132,10 +132,12 @@
                             <constraint firstItem="dYs-vP-Ggl" firstAttribute="top" secondItem="4gP-At-rzT" secondAttribute="bottom" constant="10" id="BBZ-Jn-nzV"/>
                             <constraint firstItem="gGx-J7-0H8" firstAttribute="top" secondItem="dYs-vP-Ggl" secondAttribute="bottom" constant="10" id="BnM-4p-eqE"/>
                             <constraint firstItem="FaX-dm-CIX" firstAttribute="top" secondItem="ZLd-oP-GYt" secondAttribute="bottom" constant="10" id="F0M-qH-MjH"/>
+                            <constraint firstItem="dYs-vP-Ggl" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="FIe-mb-ezR"/>
                             <constraint firstItem="ZLd-oP-GYt" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="Jgx-Ms-Quk"/>
                             <constraint firstItem="FaX-dm-CIX" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="UOR-dz-nov"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gGx-J7-0H8" secondAttribute="trailing" id="Ujx-vX-42j"/>
                             <constraint firstItem="vun-Zj-Iw7" firstAttribute="top" secondItem="gGx-J7-0H8" secondAttribute="bottom" constant="10" id="XcC-2c-tFP"/>
+                            <constraint firstItem="dYs-vP-Ggl" firstAttribute="top" secondItem="4gP-At-rzT" secondAttribute="bottom" constant="10" id="bDd-Cp-IfK"/>
                             <constraint firstItem="vun-Zj-Iw7" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="c7Y-wN-3Ty"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZLd-oP-GYt" secondAttribute="trailing" id="dm7-IL-EOJ"/>
                             <constraint firstItem="ZLd-oP-GYt" firstAttribute="top" secondItem="vun-Zj-Iw7" secondAttribute="bottom" constant="10" id="g3G-lX-20y"/>
