@@ -33,6 +33,13 @@ class InputViewController: UIViewController {
 
     }
     
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
     override func viewWillDisappear(animated: Bool) {
         try! realm.write {
             self.task.title = self.titleTextField.text!
@@ -49,11 +56,6 @@ class InputViewController: UIViewController {
     func dismissKeyboard(){
         // キーボードを閉じる
         view.endEditing(true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
