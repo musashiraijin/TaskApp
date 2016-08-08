@@ -26,7 +26,7 @@ class InputViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:"dismissKeyboard")
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(InputViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
         
         titleTextField.text = task.title
