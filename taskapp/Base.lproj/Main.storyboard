@@ -19,8 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Twy-IU-LBX">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="1" green="0.01323184885" blue="0.030823295220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="qtg-gZ-B5s" detailTextLabel="wVh-l2-9l7" style="IBUITableViewCellStyleSubtitle" id="JXQ-eE-9I8">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -52,13 +53,20 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Sxr-mc-G4Z"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3nk-Ig-KYm">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Twy-IU-LBX" secondAttribute="trailing" id="24H-LO-kdY"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Twy-IU-LBX" secondAttribute="bottom" id="IeR-iW-8c1"/>
-                            <constraint firstItem="Twy-IU-LBX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NLe-z1-yDh"/>
-                            <constraint firstItem="Twy-IU-LBX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ax1-qW-9ms"/>
+                            <constraint firstItem="3nk-Ig-KYm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="17k-7T-kAO"/>
+                            <constraint firstItem="Twy-IU-LBX" firstAttribute="top" secondItem="3nk-Ig-KYm" secondAttribute="bottom" id="OJ7-Vd-HGx"/>
+                            <constraint firstAttribute="bottom" secondItem="Twy-IU-LBX" secondAttribute="bottom" id="Psi-jM-Per"/>
+                            <constraint firstAttribute="trailing" secondItem="Twy-IU-LBX" secondAttribute="trailing" id="Ruz-dG-dMF"/>
+                            <constraint firstAttribute="trailing" secondItem="3nk-Ig-KYm" secondAttribute="trailing" id="UYl-3r-Cn8"/>
+                            <constraint firstItem="3nk-Ig-KYm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n8J-2K-u8S"/>
+                            <constraint firstItem="Twy-IU-LBX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="r7X-Eh-ZdB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rW1-IM-jHj">
@@ -70,6 +78,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="3nk-Ig-KYm" id="cLI-c4-LtG"/>
                         <outlet property="tableView" destination="Twy-IU-LBX" id="pWE-wH-EbT"/>
                         <segue destination="ii9-kF-iNV" kind="show" identifier="cellSegue" id="KSm-Si-ojQ"/>
                     </connections>

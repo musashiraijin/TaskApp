@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
     
@@ -26,8 +29,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        setUpSearchBar()
         
     }
 
@@ -125,15 +126,4 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
 
-}
-
-
-// カテゴリ検索バー　表示
-class SearchBar : UIViewController, UISearchBarDelegate {
-    
-    func setUpSearchBar() {
-        let searchBar = UISearchBar()
-        searchBar.delegate = self
-        self.navigationItem.titleView = searchBar
-    }
 }
