@@ -1,5 +1,5 @@
 //
-//  Task.swift
+//  Task.swift
 //  
 //
 //  Created by Musashi Raijin on 2016/08/06.
@@ -19,8 +19,11 @@ class Task: Object {
     // 内容
     dynamic var contents = ""
     
-    /// 日時
+    // 日時
     dynamic var date = NSDate()
+    
+    // category
+    dynamic var category = ""
     
     /**
      id をプライマリーキーとして設定
