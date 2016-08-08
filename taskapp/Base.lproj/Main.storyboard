@@ -62,6 +62,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rW1-IM-jHj">
+                        <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="okY-uT-wTV">
                             <connections>
                                 <segue destination="ii9-kF-iNV" kind="show" id="hlo-Yf-1BP"/>
@@ -111,9 +112,9 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FaX-dm-CIX">
-                                <rect key="frame" x="20" y="306" width="560" height="120"/>
+                                <rect key="frame" x="20" y="377" width="560" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="cSz-db-f46"/>
+                                    <constraint firstAttribute="height" constant="120" id="kJS-s4-gde"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="492157658.56727999">
                                     <!--2016-08-06 06:27:38 +0000-->
@@ -125,27 +126,44 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZD-Fm-4Zr">
+                                <rect key="frame" x="20" y="337" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAy-v4-9QV">
+                                <rect key="frame" x="20" y="306" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gGx-J7-0H8" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="6Hu-oi-85d"/>
                             <constraint firstItem="dYs-vP-Ggl" firstAttribute="top" secondItem="4gP-At-rzT" secondAttribute="bottom" constant="10" id="BBZ-Jn-nzV"/>
                             <constraint firstItem="gGx-J7-0H8" firstAttribute="top" secondItem="dYs-vP-Ggl" secondAttribute="bottom" constant="10" id="BnM-4p-eqE"/>
-                            <constraint firstItem="FaX-dm-CIX" firstAttribute="top" secondItem="ZLd-oP-GYt" secondAttribute="bottom" constant="10" id="F0M-qH-MjH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nZD-Fm-4Zr" secondAttribute="trailing" id="D5J-fD-1Kf"/>
                             <constraint firstItem="dYs-vP-Ggl" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="FIe-mb-ezR"/>
                             <constraint firstItem="ZLd-oP-GYt" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="Jgx-Ms-Quk"/>
-                            <constraint firstItem="FaX-dm-CIX" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="UOR-dz-nov"/>
+                            <constraint firstItem="DAy-v4-9QV" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="MBG-rW-wqO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FaX-dm-CIX" secondAttribute="trailing" id="NbV-xN-Mvy"/>
+                            <constraint firstItem="DAy-v4-9QV" firstAttribute="top" secondItem="ZLd-oP-GYt" secondAttribute="bottom" constant="10" id="RoW-fe-a7y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gGx-J7-0H8" secondAttribute="trailing" id="Ujx-vX-42j"/>
                             <constraint firstItem="vun-Zj-Iw7" firstAttribute="top" secondItem="gGx-J7-0H8" secondAttribute="bottom" constant="10" id="XcC-2c-tFP"/>
                             <constraint firstItem="dYs-vP-Ggl" firstAttribute="top" secondItem="4gP-At-rzT" secondAttribute="bottom" constant="10" id="bDd-Cp-IfK"/>
                             <constraint firstItem="vun-Zj-Iw7" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="c7Y-wN-3Ty"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZLd-oP-GYt" secondAttribute="trailing" id="dm7-IL-EOJ"/>
                             <constraint firstItem="ZLd-oP-GYt" firstAttribute="top" secondItem="vun-Zj-Iw7" secondAttribute="bottom" constant="10" id="g3G-lX-20y"/>
+                            <constraint firstItem="FaX-dm-CIX" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="k5t-a2-M1w"/>
+                            <constraint firstItem="FaX-dm-CIX" firstAttribute="top" secondItem="nZD-Fm-4Zr" secondAttribute="bottom" constant="10" id="omj-g0-Ait"/>
+                            <constraint firstItem="nZD-Fm-4Zr" firstAttribute="top" secondItem="DAy-v4-9QV" secondAttribute="bottom" constant="10" id="pJe-Ii-1fj"/>
                             <constraint firstItem="dYs-vP-Ggl" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="pbl-Tr-jwT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FaX-dm-CIX" secondAttribute="trailing" id="vYU-GQ-PDA"/>
+                            <constraint firstItem="nZD-Fm-4Zr" firstAttribute="leading" secondItem="nSv-yK-Lgh" secondAttribute="leadingMargin" id="rhM-DL-xUo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryTextField" destination="nZD-Fm-4Zr" id="jg7-Ig-L6U"/>
                         <outlet property="contentsTextView" destination="ZLd-oP-GYt" id="7S4-Id-RSb"/>
                         <outlet property="datePicker" destination="FaX-dm-CIX" id="ksw-ia-Zys"/>
                         <outlet property="titleTextField" destination="gGx-J7-0H8" id="FKs-sf-fPv"/>

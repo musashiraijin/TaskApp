@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        setUpSearchBar()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,6 +125,15 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
 
-
 }
 
+
+// カテゴリ検索バー　表示
+class SearchBar : UIViewController, UISearchBarDelegate {
+    
+    func setUpSearchBar() {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
+    }
+}
