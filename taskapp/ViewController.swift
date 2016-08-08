@@ -13,11 +13,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
+    // 検索窓のOutlet
     @IBOutlet weak var searchBar: UISearchBar!
     
     
     // Realmインスタンスを取得する
-    let realm = try! Realm()  // ←追加
+    let realm = try! Realm()
     
     // DB内のタスクが格納されるリスト。
     // 日付近い順\順でソート：降順
