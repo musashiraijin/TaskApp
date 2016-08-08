@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     // 以降内容をアップデートするとリスト内は自動的に更新される。
     let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
     
-    var searchArray = try! Realm().objects(Task).filter("category = searchBar")
+    var searchArray = try! Realm().objects(Task).filter("category == searchBar")
 
     
     override func viewDidLoad() {
