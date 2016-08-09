@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -25,13 +25,15 @@ class ViewController: UIViewController {
     // 以降内容をアップデートするとリスト内は自動的に更新される。
     let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
     
-    var searchArray = try! Realm().objects(Task).filter("category == searchBar")
-
+//    let serchResult = realm.objects(Task).filter("category == searchBar.text")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        searchBar.delegate = self
+        searchBar.enablesReturnKeyAutomatically = false
     }
 
     override func didReceiveMemoryWarning() {
