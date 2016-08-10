@@ -60,11 +60,11 @@ class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate
     }
     
     //カテゴリ検索結果のデータの数（＝セルの数）を返すメソッド
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func searchBar(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResult.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func searchBar(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 再利用可能な cell を得る
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
