@@ -51,19 +51,22 @@ class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate
                 //検索文字列が空の場合はすべてを表示する。
                 searchResult = taskArray
                 
+                
             } else {
                 //検索文字列を含むデータを検索結果配列に追加する。
-                searchResult = realm.objects(Task).filter("category == \(searchBar.text)")
+                searchResult = try! Realm().objects(Task).filter("category == \(searchBar.text)")
                 
             }
         
     }
     
-    //カテゴリ検索結果のデータの数（＝セルの数）を返すメソッド
+    // カテゴリ検索結果のデータの数（＝セルの数）を返すメソッド
     func searchBar(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResult.count
     }
     
+    
+    // カテゴリ検索後のtableViewへの表示
     func searchBar(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 再利用可能な cell を得る
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
