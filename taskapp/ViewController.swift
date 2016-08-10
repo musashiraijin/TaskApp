@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate
         
     }
     
-    //検索結果配列にデータをコピーする。
+    //検索結果配列にデータベース内のデータを一度全てコピーする。
     var searchResult = try! Realm().objects(Task).sorted("date", ascending: false)
     
     
@@ -55,11 +55,32 @@ class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate
                 //検索文字列を含むデータを検索結果配列に追加する。
                 searchResult = realm.objects(Task).filter("category == \(searchBar.text)")
                 
-                
-                
             }
         
     }
+    
+    //カテゴリ検索結果のデータの数（＝セルの数）を返すメソッド
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResult.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // 再利用可能な cell を得る
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        // Cellに値を設定する.
+        let task = searchResult[indexPath.row]
+        cell.textLabel?.text = task.title
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        let dateString:String = formatter.stringFromDate(task.date)
+        cell.detailTextLabel?.text = dateString
+        
+        return cell
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
