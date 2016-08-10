@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -25,15 +25,40 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
     // 以降内容をアップデートするとリスト内は自動的に更新される。
     let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
     
-//    let serchResult = realm.objects(Task).filter("category == searchBar.text")
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        tableView.delegate = self
         searchBar.delegate = self
+        
+        //何も入力されていなくてもReturnキーを押せるようにする。
         searchBar.enablesReturnKeyAutomatically = false
+        
+    }
+    
+    //検索結果配列にデータをコピーする。
+    var searchResult = try! Realm().objects(Task).sorted("date", ascending: false)
+    
+    
+    // 検索ボタンを押した時
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+            searchBar.endEditing(true)
+        
+            if(searchBar.text == "") {
+                
+                //検索文字列が空の場合はすべてを表示する。
+                searchResult = taskArray
+                
+            } else {
+                //検索文字列を含むデータを検索結果配列に追加する。
+                searchResult = realm.objects(Task).filter("category == \(searchBar.text)")
+                
+                
+                
+            }
+        
     }
 
     override func didReceiveMemoryWarning() {

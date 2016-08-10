@@ -53,7 +53,7 @@ class InputViewController: UIViewController {
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date
             
-            // カテゴリ追加
+            // カテゴリTextField追加
             self.task.category = self.categoryTextField.text!
             
             self.realm.add(self.task, update: true)
