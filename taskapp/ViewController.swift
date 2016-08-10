@@ -35,8 +35,8 @@ class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        tableView.delegate = self
-        searchBar.delegate = self
+        self.tableView.delegate = self
+        self.searchBar.delegate = self
         
         //何も入力されていなくてもReturnキーを押せるようにする。
         searchBar.enablesReturnKeyAutomatically = false
