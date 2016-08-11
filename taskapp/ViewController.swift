@@ -34,19 +34,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    // カテゴリ検索をする
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        inputText = searchText
-        
-        if inputText != nil {
-            taskArray = try! Realm().objects(Task).filter("category == %@",inputText!)
-        }
-        
-        tableView.reloadData()
-    }
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -137,6 +124,19 @@ class ViewController: UIViewController, UISearchBarDelegate {
     // 入力画面から戻ってきた時に TableView を更新させる
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    // カテゴリ検索をする
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        inputText = searchText
+        
+        if inputText != nil {
+//            taskArray = try! Realm().objects(Task).filter("category == %@",inputText!)
+            taskArray = try! Realm().objects(Task).filter("category CONTAINS[c] %@",inputText!)
+        }
+        
         tableView.reloadData()
     }
 
