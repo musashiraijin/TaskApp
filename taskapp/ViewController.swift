@@ -9,14 +9,14 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate {
+class ViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
     // 検索窓のOutlet
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var inputText: String!
+    var inputText:String?
     
     // Realmインスタンスを取得する
     let realm = try! Realm()
@@ -24,23 +24,23 @@ class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate
     // DB内のタスクが格納されるリスト。
     // 日付近い順\順でソート：降順
     // 以降内容をアップデートするとリスト内は自動的に更新される。
-    let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
+    var taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        tableView.delegate = self
         searchBar.delegate = self
         
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
+    // カテゴリ検索をする
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
         inputText = searchText
         
-        if inputText != nil{
-            let taskArray = try! Realm().objects(Task).filter("category == %@",inputText!)
+        if inputText != nil {
+            taskArray = try! Realm().objects(Task).filter("category == %@",inputText!)
         }
         
         tableView.reloadData()

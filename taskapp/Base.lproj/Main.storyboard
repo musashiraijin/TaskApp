@@ -56,6 +56,9 @@
                             <searchBar contentMode="redraw" placeholder="カテゴリを検索" translatesAutoresizingMaskIntoConstraints="NO" id="3nk-Ig-KYm">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XQx-Qz-p5T"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
