@@ -16,9 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate
     // 検索窓のOutlet
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-    var searchView: UITableView!
-    
+    var inputText: String!
     
     // Realmインスタンスを取得する
     let realm = try! Realm()
@@ -28,70 +26,31 @@ class ViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate
     // 以降内容をアップデートするとリスト内は自動的に更新される。
     let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
     
-    // searchResultインスタンスを取得する
-    var searchResult = try! Realm().objects(Task).sorted("date", ascending: false)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.tableView.delegate = self
-        self.searchBar.delegate = self
-        
-        //何も入力されていなくてもReturnキーを押せるようにする。
-        searchBar.enablesReturnKeyAutomatically = false
+        tableView.delegate = self
+        searchBar.delegate = self
         
     }
     
-    
-    // 検索ボタンを押した時
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-            searchBar.endEditing(true)
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
         
-            if(searchBar.text == "") {
-                
-                //検索文字列が空の場合はすべてを表示する。
-                searchResult = taskArray
-                
-                
-            } else {
-                //検索文字列を含むデータを検索結果配列に追加する。
-                searchResult = try! Realm().objects(Task).filter("category == '\(searchBar.text!)'").sorted("date", ascending: true)
-                
-            }
+        inputText = searchText
         
+        if inputText != nil{
+            let taskArray = try! Realm().objects(Task).filter("category == %@",inputText!)
+        }
+        
+        tableView.reloadData()
     }
     
-    // データの数（＝セルの数）を返すメソッド
-    func searchView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResult.count
-    }
-
-    
-    // カテゴリ検索後のtableViewへの表示
-    func searchView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // 再利用可能な cell を得る
-        let cell = searchView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
-        // Cellに値を設定する.
-        let task = searchResult[indexPath.row]
-        cell.textLabel?.text = task.title
-        
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        
-        let dateString:String = formatter.stringFromDate(task.date)
-        cell.detailTextLabel?.text = dateString
-        
-        return cell
-    }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
     // MARK: UITableViewDataSourceプロトコルのメソッド
